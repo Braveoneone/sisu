@@ -38,7 +38,7 @@ const nluMapping: NLUMapping = {
 const nlgMapping: NLGMapping = [
   [{ type: "ask", content: WHQ("booking_course") }, "Which course?"],
   [{ type: "ask", content: WHQ("course_day") }, "Which day?"],
-  [{ type: "ask", content: WHQ("sorry") }, "Sorry, I don’t understand."],
+  [{ type: "sorry", content: null }, "Sorry, I don’t understand."],
   [{ type: "greet", content: null }, "Hello! You can ask me anything!"],
   //[{ type: "request", content: null }, "Sorry, I don’t understand."],
   [

@@ -12,7 +12,6 @@ type Rules = {
     context: TotalInformationState,
   ) => ((x: void) => InformationState) | undefined;
 };
-let answerMove: Question = { type: "whq", predicate: "" };
 export const rules: Rules = {
   clear_agenda: ({ is }) => {
     return () => ({
@@ -349,13 +348,13 @@ export const rules: Rules = {
       //const askMove: Move = { type: "request", content: "Sorry, I don’t understand." };
       return () => ({
         ...is,
-        next_moves: [ ...is.next_moves, { type: "ask", content: { type: 'whq', predicate: 'sorry' } }, { type: "ask", content: q }  ]
+        next_moves: [ ...is.next_moves, { type: "sorry", content: null}, { type: "ask", content: q }  ]
       });}
     else if (Array.isArray(is.shared.lu!.moves) && is.shared.lu!.moves.length === 0 && !is.private.agenda[0]) {
       console.log("====================type====================",is.private.agenda[0]);
       return () => ({
         ...is,
-        next_moves: [ ...is.next_moves, { type: "ask", content: { type: 'whq', predicate: 'sorry' } } ]
+        next_moves: [ ...is.next_moves, { type: "sorry", content: null } ]
       });
     
     }
